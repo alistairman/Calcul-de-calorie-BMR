@@ -25,8 +25,10 @@ public abstract class Controler extends Application{
     
     @Override
     public void start(Stage primaryStage) {
-        vieuw = new Vieuw();
+        
         model = new Model_Bmr();
+        vieuw = new Vieuw(model);
+        
        
         vieuw.setTextButton(model.getButton(),"Say 'Hello World'");
         model.getButton().setOnAction(new EventHandler<ActionEvent>() {
@@ -37,9 +39,10 @@ public abstract class Controler extends Application{
             }
         });
         
-        StackPane root = new StackPane();
-        root.getChildren().add(model.getButton());
         
+        StackPane root = new StackPane();
+        model.addButton(root,model.getButton());
+        model.addLabel(root,vieuw.label("Alistair"));
         Scene scene = new Scene(root, 300, 250);
     
         primaryStage.setTitle("Hello World!");

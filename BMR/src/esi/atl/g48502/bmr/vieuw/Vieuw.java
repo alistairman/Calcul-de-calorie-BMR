@@ -6,12 +6,18 @@
 package esi.atl.g48502.bmr.vieuw;
 
 import esi.atl.g48502.bmr.controler.Controler;
+import esi.atl.g48502.bmr.model.Model_Bmr;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+
+
 
 public class Vieuw extends Controler {
     
-    public Vieuw(){
-        Vieuw aThis = this;
+    private final Model_Bmr model;
+    
+    public Vieuw(Model_Bmr model){
+        this.model = model;
     }
     
     public void println(String string){
@@ -23,6 +29,9 @@ public class Vieuw extends Controler {
         button.setText(string);
     }
     
+    public Label label(String string){
+        return model.newLabel(string);
+    }
     
    
 }
