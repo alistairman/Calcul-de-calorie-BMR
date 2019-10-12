@@ -24,15 +24,16 @@ public class Model_Bmr extends Controler{
     
     Button button;
     ChoiceBox choiceBox;
-    List <Label> labels;
+    
+    StackPane root;
     
 
     public Model_Bmr() {
         
         this.button = new Button();
         this.choiceBox =  new ChoiceBox();
-        labels = new ArrayList<>();
-        
+        this.root = new StackPane();
+       
     }
 
     public Button getButton() {
@@ -42,34 +43,38 @@ public class Model_Bmr extends Controler{
     public ChoiceBox getChoiceBox() {
         return choiceBox;
     }
+
+    public StackPane getRoot() {
+        return root;
+    }
     
-    public void addLabel(StackPane root,Label label){
+    
+    
+    public void addLabel(Label label){
         root.getChildren().add(label);
     }
     
-    public void addButton(StackPane root, Button button){
-        root.getChildren().add(button);
+    public void addButton(){
+        this.root.getChildren().add(button);
     }
     
-    public void addTextField(StackPane root,TextField text){
-        root.getChildren().add(text);
+    public void addTextField(){
+        root.getChildren().add(new TextField());
     }
     
-    public void addChoiceBox(StackPane root, ChoiceBox box){
+    public void addChoiceBox(ChoiceBox box){
         root.getChildren().add(box);
     }
     
-    public void addRadioButton(StackPane root, RadioButton btn){
-        root.getChildren().add(btn);
+    public void addRadioButton(RadioButton radio){
+        root.getChildren().add(radio);
     }
     
-    public void addGridPane(StackPane root, GridPane grid){
-        root.getChildren().add(grid);
+    public void addGridPane(){
+        root.getChildren().add(new GridPane());
     }
     
-    public Label newLabel(String string){
-        return new Label(string);
-    }
+    
     
     
 }

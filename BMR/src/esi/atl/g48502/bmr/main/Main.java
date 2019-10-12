@@ -4,18 +4,20 @@
  * and open the template in the editor.
  */
 package esi.atl.g48502.bmr.main;
-import esi.atl.g48502.bmr.controler.Controler;
+import esi.atl.g48502.bmr.vieuw.Vieuw;
 import static javafx.application.Application.launch;
 
 /**
  *
  * @author alistairclerebaut
  */
-public class Main extends Controler {
+public class Main extends Vieuw{
     
     
     
     public static void main(String[] args) {
         launch(args);
     }
+     
+    
 }
