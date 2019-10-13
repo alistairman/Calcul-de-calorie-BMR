@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package esi.atl.g48502.bmr.main;
+import esi.atl.g48502.bmr.model.Model_Bmr;
 import esi.atl.g48502.bmr.vieuw.Vieuw;
 import static javafx.application.Application.launch;
 
@@ -14,8 +15,8 @@ import static javafx.application.Application.launch;
 public class Main extends Vieuw{
     
     
-    
     public static void main(String[] args) {
+        //Model_Bmr model = new Model_Bmr();
         launch(args);
     }
      

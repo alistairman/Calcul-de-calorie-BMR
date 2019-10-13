@@ -5,7 +5,11 @@
  */
 package esi.atl.g48502.bmr.vieuw;
 
+import esi.atl.g48502.bmr.model.Activities;
+import java.util.ArrayList;
+import java.util.List;
 import javafx.application.Application;
+import javafx.collections.FXCollections;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -23,6 +27,16 @@ import javafx.stage.Stage;
 
 
 public abstract class Vieuw extends Application{
+    
+    private List<Activities> activity = new ArrayList<>();
+    
+    public List<Activities> activity(){
+        List<Activities> list = new ArrayList<>();
+        for (Activities e : Activities.values()){
+            list.add(e);
+        }
+        return list;
+    }
     
     
     @Override
@@ -114,7 +128,7 @@ public abstract class Vieuw extends Application{
         gridPane1.add(radioButton2, 1, 6);
 
         ChoiceBox choiceBox = new ChoiceBox();
-        //choiceBox.valueProperty()
+        choiceBox.setItems(FXCollections.observableArrayList(activity()));
         gridPane1.add(choiceBox, 1, 7);
         
         Label label8 = new Label(" BMR ");
