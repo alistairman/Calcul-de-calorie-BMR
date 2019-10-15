@@ -10,6 +10,7 @@ import esi.atl.g48502.bmr.vieuw.Vieuw2;
 import java.util.Arrays;
 import java.util.List;
 import javafx.event.ActionEvent;
+import javafx.stage.Stage;
 /**
  *
  * @author alistairclerebaut
@@ -24,12 +25,7 @@ public class Controler {
     
     public void start(){
         
-        vieuw.getButton().setOnAction((ActionEvent e) -> {
-            if(vieuw.getText1().getText().isEmpty()){
-                System.out.println(" marche pas");
-            }
-        });
-        
+       
     }
     
     

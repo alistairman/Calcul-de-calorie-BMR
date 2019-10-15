@@ -21,7 +21,7 @@ public class Main extends Vieuw2{
         Vieuw2 vieuw = new Vieuw2();
         Controler control = new Controler(vieuw);
         launch();
-        control.start();
+        //control.start();
         
     }
 

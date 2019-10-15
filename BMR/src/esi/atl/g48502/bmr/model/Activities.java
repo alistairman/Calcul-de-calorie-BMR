@@ -10,5 +10,5 @@ package esi.atl.g48502.bmr.model;
  * @author alistairclerebaut
  */
 public enum Activities {
-    ACTIF ,SEDENTAIRE, EXTREME_ACTIF;
+    SEDENTAIRE, PEU_ACTIF, ACTIF, FORT_ACTIF ,EXTREME_ACTIF;
 }

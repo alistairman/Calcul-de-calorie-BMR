@@ -20,6 +20,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -31,7 +32,7 @@ import javafx.stage.Stage;
 public abstract class Vieuw extends Application{
     
     
-    private List<Activities> activity;
+    protected List<Activities> activity;
     private TextField text1 ;
     private TextField text2 ;
     private TextField text3 ;
@@ -60,6 +61,8 @@ public abstract class Vieuw extends Application{
     Label label9 ;
     
     Button button;
+    
+    ToggleGroup group;
 
     public Vieuw() {
         
@@ -93,6 +96,8 @@ public abstract class Vieuw extends Application{
         this.label9 = new Label(" Calories "); 
         
         this.button = new Button(" Caclul du BMR ");
+        
+        this.group = new ToggleGroup();
         
         
     }
@@ -131,6 +136,10 @@ public abstract class Vieuw extends Application{
 
     public ChoiceBox getChoiceBox() {
         return choiceBox;
+    }
+
+    public List<Activities> getActivity() {
+        return activity;
     }
     
     
@@ -202,6 +211,9 @@ public abstract class Vieuw extends Application{
         button.setPrefWidth(700);
         button.setAlignment(Pos.CENTER);
         vBox.getChildren().add(button);
+        
+        this.radioButton1.setToggleGroup(group);
+        this.radioButton2.setToggleGroup(group);
         
         
         
