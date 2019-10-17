@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package esi.atl.g48502.bmr.vieuw;
 
 
@@ -28,42 +24,48 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 
-
+/**
+ * the class that represente a structure of the user interface
+ * @author alistairclerebaut
+ */
 public abstract class Vieuw extends Application{
     
     
     protected List<Activities> activity;
-    private TextField text1 ;
-    private TextField text2 ;
-    private TextField text3 ;
-    private TextField text4 ;
-    private TextField text5 ;
+    protected TextField text1 ;
+    protected TextField text2 ;
+    protected TextField text3 ;
+    protected TextField text4 ;
+    protected TextField text5 ;
 
-    BorderPane root;
-    VBox vBox;
-    HBox hBox;
-    GridPane gridPane1;
-    GridPane gridPane2;
-    Label label1;
-    Label label2;
-    Label label3;
-    Label label4;
-    Label label5;
-    Label label6;
-    Label label7;
+    protected BorderPane root;
+    protected VBox vBox;
+    protected HBox hBox;
+    protected GridPane gridPane1;
+    protected GridPane gridPane2;
+    protected Label label1;
+    protected Label label2;
+    protected Label label3;
+    protected Label label4;
+    protected Label label5;
+    protected Label label6;
+    protected Label label7;
     
-    RadioButton radioButton1;
-    RadioButton radioButton2;
+    protected RadioButton radioButton1;
+    protected RadioButton radioButton2;
     
-    ChoiceBox choiceBox ;
+    protected ChoiceBox choiceBox ;
     
-    Label label8 ;
-    Label label9 ;
+    protected Label label8 ;
+    protected Label label9 ;
     
-    Button button;
+    protected Button button;
     
-    ToggleGroup group;
+    protected ToggleGroup group;
 
+    /**
+     * the method that create the interface of user
+     */
     public Vieuw() {
         
         this.activity = new ArrayList<>();
@@ -102,6 +104,10 @@ public abstract class Vieuw extends Application{
         
     }
 
+    /**
+     * method that make the textField one accessible
+     * @return return the 
+     */
     public TextField getText1() {
         return text1;
     }
