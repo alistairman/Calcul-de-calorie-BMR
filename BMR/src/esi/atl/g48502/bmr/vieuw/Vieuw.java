@@ -8,13 +8,20 @@ import java.util.Arrays;
 import java.util.List;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
@@ -32,6 +39,9 @@ import javafx.stage.Stage;
  */
 public abstract class Vieuw extends Application{
     
+    protected MenuBar menuBar;
+    protected Menu menuFile;
+    protected MenuItem exit;
     
     protected List<Activities> activity;
     protected TextField textSize ;
@@ -105,6 +115,10 @@ public abstract class Vieuw extends Application{
         
         this.groupRadioButton = new ToggleGroup();
         
+        this.menuBar = new MenuBar();
+        this.menuFile = new Menu("File");
+        this.exit = new MenuItem("Exit");
+        
         
     }
     
@@ -118,6 +132,10 @@ public abstract class Vieuw extends Application{
         hBox.setVisible(true);
         hBox.setAlignment(Pos.CENTER);
         hBox.autosize();
+        
+        menuFile.getItems().add(exit);
+        menuBar.getMenus().add(menuFile);
+        vBox.getChildren().add(menuBar);
         
         vBox.getChildren().add(hBox);
         
@@ -185,6 +203,7 @@ public abstract class Vieuw extends Application{
             @Override
             public void handle(KeyEvent e){
                 inputOnlyNumber(e);
+                invalidInput(e);
                 
             }
         });
@@ -193,6 +212,7 @@ public abstract class Vieuw extends Application{
             @Override
             public void handle(KeyEvent e){
                 inputOnlyNumber(e);
+                invalidInput(e);
             }
         });
         
@@ -200,10 +220,16 @@ public abstract class Vieuw extends Application{
             @Override
             public void handle(KeyEvent e){
                 inputOnlyNumber(e);
+                invalidInput(e);
             }
         });
         
-        
+        exit.addEventHandler(ActionEvent.ACTION, new EventHandler<ActionEvent>(){
+           @Override
+           public void handle(ActionEvent event){
+               System.exit(0);
+           } 
+        });
         
         
         
@@ -221,6 +247,12 @@ public abstract class Vieuw extends Application{
         }
     }
 
+    private void invalidInput(KeyEvent e) {
+        if (e.getCharacter().matches("[-0]")){
+            Alert error = new Alert(AlertType.ERROR,"WARNING",ButtonType.CLOSE);
+            error.showAndWait();
+        }
+    }
     
     
     
