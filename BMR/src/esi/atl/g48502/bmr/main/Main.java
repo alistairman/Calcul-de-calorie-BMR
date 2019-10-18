@@ -1,25 +1,27 @@
 
 package esi.atl.g48502.bmr.main;
 
-import esi.atl.g48502.bmr.vieuw.Vieuw2;
+import esi.atl.g48502.bmr.controler.Controler;
+import javafx.application.Application;
 import static javafx.application.Application.launch;
+import javafx.stage.Stage;
 
 /**
  *the main class of the application
  * @author alistairclerebaut
  */
-public class Main extends Vieuw2{
+public class Main extends Application{
     
-    
-    
-    public static void main(String[] args) {
         
-        Vieuw2 vieuw = new Vieuw2();
-        launch();
-        
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        Controler controler = new Controler(primaryStage);
+        controler.getVieuw().start(primaryStage);
+        controler.start(primaryStage);
     }
 
     
-     
-    
+    public static void main(String[] args) {   
+        launch();
+    }
 }
