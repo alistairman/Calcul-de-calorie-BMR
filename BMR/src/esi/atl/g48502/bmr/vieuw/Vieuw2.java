@@ -7,6 +7,7 @@ import esi.atl.g48502.bmr.model.Homme;
 import static java.lang.Integer.parseInt;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 /**
@@ -56,55 +57,58 @@ public class Vieuw2 extends Vieuw{
         
         
         
-        super.button.setOnAction((ActionEvent e) -> {
-            if(super.text1.getText().isEmpty() || 
-                    super.text2.getText().isEmpty() || 
-                    super.text3.getText().isEmpty()){
+        super.buttonBmrCalcul.setOnAction((ActionEvent e) -> {
+            if(super.textSize.getText().isEmpty() || 
+                    super.textWeight.getText().isEmpty() || 
+                    super.textAge.getText().isEmpty()){
                 System.out.println( "\033[31m"+" marche pas");
                 
-                super.text4.setText(" Failed! ");
-                super.text4.setStyle("-fx-text-fill:red");
-                super.text5.setText(" Failed! ");
-                super.text5.setStyle("-fx-text-fill:red");
+                super.textBmr.setText(" Failed! ");
+                super.textBmr.setStyle("-fx-text-fill:red");
+                super.textCalorie.setText(" Failed! ");
+                super.textCalorie.setStyle("-fx-text-fill:red");
             }
             
-            else if(group.getSelectedToggle()==super.radioButton1){
-                double poids = parseInt(super.text1.getText());
-                double taille = parseInt(super.text2.getText());
-                double age = parseInt(super.text3.getText());
+            else if(groupRadioButton.getSelectedToggle()==super.radioButtonHomme){
+                double poids = parseInt(super.textSize.getText());
+                double taille = parseInt(super.textWeight.getText());
+                double age = parseInt(super.textAge.getText());
                 homme = new Homme (poids,taille,age);
             
-                super.text4.setText(Integer.toString(homme.bmr()));
-                super.text5.setText(Integer.toString(homme.calorie(act((Activities)super.choiceBox.getValue()))));
+                super.textBmr.setText(Integer.toString(homme.bmr()));
+                super.textCalorie.setText(Integer.toString(homme.calorie(act((Activities)super.choiceBoxActivity.getValue()))));
             
                 }
             
-            else if(group.getSelectedToggle()==super.radioButton2){
-                double poids = parseInt(super.text1.getText());
-                double taille = parseInt(super.text2.getText());
-                double age = parseInt(super.text3.getText());
+            else if(groupRadioButton.getSelectedToggle()==super.radioButtonFemme){
+                double poids = parseInt(super.textSize.getText());
+                double taille = parseInt(super.textWeight.getText());
+                double age = parseInt(super.textAge.getText());
                 femme = new Femme(poids,taille,age);
                 
-                super.text4.setText(Integer.toString(femme.bmr()));
-                super.text5.setText(Integer.toString(femme.calorie(act((Activities)super.choiceBox.getValue()))));
+                super.textBmr.setText(Integer.toString(femme.bmr()));
+                super.textCalorie.setText(Integer.toString(femme.calorie(act((Activities)super.choiceBoxActivity.getValue()))));
                 }
             
         });
         
-//        super.button2.addEventHandler(ActionEvent.ACTION, new EventHandler<ActionEvent>(){
+//        super.buttonClear.addEventHandler(ActionEvent.ACTION, new EventHandler<ActionEvent>(){
 //           @Override
 //           public void handle(ActionEvent event){
 //               super.text
 //           } 
 //        });
 
-        super.button2.setOnAction((ActionEvent e)->{
-            super.text1.clear();
-            super.text2.clear();
-            super.text3.clear();
-            super.text4.clear();
-            super.text5.clear();
+        super.buttonClear.setOnAction((ActionEvent e)->{
+            super.textSize.clear();
+            super.textWeight.clear();
+            super.textAge.clear();
+            super.textBmr.clear();
+            super.textCalorie.clear();
         });
+        
+
+        
     }
 }
 
