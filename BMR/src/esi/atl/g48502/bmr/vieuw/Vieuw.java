@@ -60,6 +60,7 @@ public abstract class Vieuw extends Application{
     protected Label label9 ;
     
     protected Button button;
+    protected Button button2;
     
     protected ToggleGroup group;
 
@@ -98,60 +99,12 @@ public abstract class Vieuw extends Application{
         this.label9 = new Label(" Calories "); 
         
         this.button = new Button(" Caclul du BMR ");
+        this.button2 = new Button("Clear");
         
         this.group = new ToggleGroup();
         
         
     }
-
-    /**
-     * method that make the textField one accessible
-     * @return return the 
-     */
-    public TextField getText1() {
-        return text1;
-    }
-
-    public TextField getText2() {
-        return text2;
-    }
-
-    public TextField getText3() {
-        return text3;
-    }
-
-    public TextField getText4() {
-        return text4;
-    }
-
-    public TextField getText5() {
-        return text5;
-    }
-
-    public RadioButton getRadioButton1() {
-        return radioButton1;
-    }
-
-    public RadioButton getRadioButton2() {
-        return radioButton2;
-    }
-
-    public Button getButton() {
-        return button;
-    }
-
-    public ChoiceBox getChoiceBox() {
-        return choiceBox;
-    }
-
-    public List<Activities> getActivity() {
-        return activity;
-    }
-    
-    
-    
-    
-    
     
     @Override
     public void start(Stage primaryStage) {
@@ -162,6 +115,7 @@ public abstract class Vieuw extends Application{
         
         hBox.setVisible(true);
         hBox.setAlignment(Pos.CENTER);
+        hBox.autosize();
         
         vBox.getChildren().add(hBox);
         
@@ -218,12 +172,16 @@ public abstract class Vieuw extends Application{
         button.setAlignment(Pos.CENTER);
         vBox.getChildren().add(button);
         
+        button2.setPrefWidth(700);
+        button2.setAlignment(Pos.CENTER);
+        vBox.getChildren().add(button2);
+        
         this.radioButton1.setToggleGroup(group);
         this.radioButton2.setToggleGroup(group);
         
         
         
-        Scene scene = new Scene(root, 700, 350);
+        Scene scene = new Scene(root, 700, 400);
         
         primaryStage.setTitle(" Calcul du BMR ");
         primaryStage.setScene(scene);

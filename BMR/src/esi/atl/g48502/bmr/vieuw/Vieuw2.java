@@ -6,6 +6,7 @@ import esi.atl.g48502.bmr.model.Femme;
 import esi.atl.g48502.bmr.model.Homme;
 import static java.lang.Integer.parseInt;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.stage.Stage;
 
 /**
@@ -55,7 +56,7 @@ public class Vieuw2 extends Vieuw{
         
         
         
-        super.getButton().setOnAction((ActionEvent e) -> {
+        super.button.setOnAction((ActionEvent e) -> {
             if(super.text1.getText().isEmpty() || 
                     super.text2.getText().isEmpty() || 
                     super.text3.getText().isEmpty()){
@@ -88,6 +89,21 @@ public class Vieuw2 extends Vieuw{
                 super.text5.setText(Integer.toString(femme.calorie(act((Activities)super.choiceBox.getValue()))));
                 }
             
+        });
+        
+//        super.button2.addEventHandler(ActionEvent.ACTION, new EventHandler<ActionEvent>(){
+//           @Override
+//           public void handle(ActionEvent event){
+//               super.text
+//           } 
+//        });
+
+        super.button2.setOnAction((ActionEvent e)->{
+            super.text1.clear();
+            super.text2.clear();
+            super.text3.clear();
+            super.text4.clear();
+            super.text5.clear();
         });
     }
 }
