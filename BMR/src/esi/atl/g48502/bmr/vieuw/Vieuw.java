@@ -46,7 +46,8 @@ public class Vieuw{
     
 
     /**
-     * the method that create the interface of user
+     * create the vieuw of the application 
+     * @param primaryStage where the vieuw will be set
      */
     public Vieuw(Stage primaryStage) {
         
@@ -71,47 +72,75 @@ public class Vieuw{
         this.activity = new ArrayList<>();
         activity.addAll(Arrays.asList(Activities.values()));
         
-        
     }
 
+    /**
+     * method that make the class of button accessible
+     * @return the buttons on class
+     */
     public ButtonOfVieuw getButtonVieuw() {
         return buttonVieuw;
     }
     
-    
+    /**
+     * method that make the VBox of vieuw interface accessible
+     * @return the VBox of the user interface
+     */
     public VBox getvBox() {
         return vBox;
     }
     
-
+    /**
+     * method that make class of radioButton of the interface accessible
+     * @return the radiobuttons of the user interface 
+     */
     public RadioButtonOfVieuw getRadioButtonVieuw() {
         return radioButtonVieuw;
     }
 
+    /**
+     * method that make the class of textField of interface accessible
+     * @return all textField of user interface
+     */
     public TextFieldOfVieuw getTextFieldVieuw() {
         return textFieldVieuw;
     }
    
+    /**
+     * method that make the choiceBox accessible
+     * @return the choicebox from the user interface
+     */
     public ChoiceBox getChoiceBoxActivity() {
         return choiceBoxActivity;
     }
 
+    /**
+     * method that make the menubar of interface accessible
+     * @return the menus from the user interface
+     */
     public MenuOfVbox getMenuOfVbox() {
         return menuOfVbox;
     }
 
+    /**
+     * method that make the gridpane of interface accessible
+     * @return the gridpanes from the user interface
+     */
     public GridPaneOfVieuw getGridPaneOfVieuw() {
         return gridPaneOfVieuw;
     }
     
-  
     
+    /**
+     * method that set all components of the user interface
+     * and show the primaryStage
+     * @param primaryStage the stage where the component will be set
+     *
+     */
     public void start(Stage primaryStage) {
         
-        //vBox.setVisible(true);
         root.setCenter(vBox);
         
-        //hBox.setVisible(true);
         hBox.setAlignment(Pos.CENTER);
         hBox.autosize();
         
@@ -136,6 +165,5 @@ public class Vieuw{
         primaryStage.setScene(scene);
         primaryStage.setTitle(" Calcul du BMR ");
         primaryStage.show();
-        
     }   
 }

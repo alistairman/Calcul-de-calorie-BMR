@@ -1,14 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package esi.atl.g48502.bmr.vieuw;
 
 import javafx.scene.control.Label;
 
 /**
- *
+ *the class that represent all label in the vieuw
  * @author alistairclerebaut
  */
 public class LabelOfVieuw {
@@ -24,7 +20,10 @@ public class LabelOfVieuw {
     private Label labelBmrResult ;
     private Label labelCalorieResult ;
     
-    
+    /**
+     * create the labels with specific name of each
+     * @param vieuw the specific vieuw where the label will be set
+     */
     public LabelOfVieuw(Vieuw vieuw){
         this.labelInPut = new Label(" Données ");
         this.labelOutPut =  new Label(" Résultats ");
@@ -39,7 +38,9 @@ public class LabelOfVieuw {
     }
 
     
-    
+    /**
+     * method that set all labels in the specific vieuw
+     */
     public void setLabelOfVieuw(){
         labelInPut.setUnderline(true);
         labelOutPut.setUnderline(true);

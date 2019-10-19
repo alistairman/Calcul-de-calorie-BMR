@@ -6,7 +6,7 @@ import javafx.geometry.Pos;
 import javafx.scene.layout.GridPane;
 
 /**
- *
+ *the class that represent the gridpane of vieuw
  * @author alistairclerebaut
  */
 public class GridPaneOfVieuw {
@@ -15,21 +15,35 @@ public class GridPaneOfVieuw {
     private GridPane gridPaneOutPut;
     private Vieuw vieuw;
     
+    /**
+     * create the gridpane of specific vieuw
+     * @param vieuw the vieuw where the gridpane will be set
+     */
     public GridPaneOfVieuw(Vieuw vieuw){
         this.gridPaneInPut = new GridPane();
         this.gridPaneOutPut  = new GridPane();
         this.vieuw = vieuw;
     }
     
-    
+    /**
+     * the gridpane of input values
+     * @return the input gridpane
+     */
     public GridPane getGridPaneInPut() {
         return gridPaneInPut;
     }
 
+    /**
+     * the gridpane of output values
+     * @return the output gridpane
+     */
     public GridPane getGridPaneOutPut() {
         return gridPaneOutPut;
     }
     
+    /**
+     * method that set the gridpane in the specific vieuw
+     */
     public void setGripPaneOfVieuw(){
         
         gridPaneInPut.setAlignment(Pos.TOP_LEFT);

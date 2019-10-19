@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 
 /**
  *the class that represent the users interface
+ * that class control diferent actions done on application
  * @author alistairclerebaut
  */
 public class Controler{
@@ -30,22 +31,24 @@ public class Controler{
     
     /**
      * create the interface with initial components
-     * @param primaryStage
+     * @param primaryStage where the interface is launched
      */
     public Controler(Stage primaryStage){
         this.vieuw = new Vieuw(primaryStage);
     }
 
+    /**
+     * method make the vieuw class accessible
+     * @return the class of vieuw
+     */
     public Vieuw getVieuw() {
         return vieuw;
     }
 
-    
-    
     /**
      * the method that select the value of activity choised 
      * @param act the activity choised 
-     * @return the velue of the activity
+     * @return the value of the activity
      */
     public double act(Activities act){
         double nb=0;
@@ -62,7 +65,7 @@ public class Controler{
     }
 
     /**
-     * the method that set the fonctionality of the user interface
+     * the method that set the actions must be done on the user interface
      * @param primaryStage the stage where the interface is set
      */
     public void start(Stage primaryStage) {
@@ -127,11 +130,11 @@ public class Controler{
         });
         
         vieuw.getButtonVieuw().getButtonClear().setOnAction((ActionEvent e)->{
-            clearTextField(vieuw.getTextFieldVieuw().getTextSize());
-            clearTextField(vieuw.getTextFieldVieuw().getTextWeight());
-            clearTextField(vieuw.getTextFieldVieuw().getTextAge());;
-            clearTextField(vieuw.getTextFieldVieuw().getTextBmr());
-            clearTextField(vieuw.getTextFieldVieuw().getTextCalorie());
+            clearTextFieldSize();
+            clearTextFieldWeight();
+            clearTextFieldAge();
+            clearTextFieldBmr();
+            clearTextFieldCalorie();
         });
         
         vieuw.getTextFieldVieuw().getTextWeight().addEventFilter(
@@ -172,17 +175,63 @@ public class Controler{
         });        
     }
 
-    
+    /**
+     * method clear the calorie TextField
+     */
+    private void clearTextFieldCalorie() {
+        clearTextField(vieuw.getTextFieldVieuw().getTextCalorie());
+    }
+
+    /**
+     * method clear the Bmr textField result
+     */
+    private void clearTextFieldBmr() {
+        clearTextField(vieuw.getTextFieldVieuw().getTextBmr());
+    }
+
+    /**
+     * method clear the Age textFeidl
+     */
+    private void clearTextFieldAge() {
+        clearTextField(vieuw.getTextFieldVieuw().getTextAge());
+    }
+
+    /**
+     * method clear the wieght textField
+     */
+    private void clearTextFieldWeight() {
+        clearTextField(vieuw.getTextFieldVieuw().getTextWeight());
+    }
+
+    /**
+     * method clear the size textField
+     */
+    private void clearTextFieldSize() {
+        clearTextField(vieuw.getTextFieldVieuw().getTextSize());
+    }
+
+    /**
+     * the common method that clear a textField 
+     * @param text the textField must be clear 
+     */
     private void clearTextField(TextField text) {
         text.clear();
     }
     
+    /**
+     * method that consume the event key typed when it was a charactere
+     * @param e event key typed
+     */
     private void inputOnlyNumber(KeyEvent e) {
         if (e.getCharacter().matches("[^0-9]")){
             e.consume();
         }
     }
 
+    /**
+     * method that show a warning alert when the negatif number was typeed
+     * @param e event key typed
+     */
     private void invalidInput(KeyEvent e) {
         if (e.getCharacter().matches("[-0]")){
             Alert error = new Alert(Alert.AlertType.ERROR,
