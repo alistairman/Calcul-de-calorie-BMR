@@ -3,8 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/alistairclerebaut/Desktop/ESI/2ème/ATL/BMR/BMR/src/esi/atl/g48502/bmr/vieuw/Vieuw.java</file>
-            <file>file:/Users/alistairclerebaut/Desktop/ESI/2ème/ATL/BMR/BMR/src/esi/atl/g48502/bmr/vieuw/Vieuw2.java</file>
+            <file>file:/Users/alistairclerebaut/Desktop/ESI/2ème/ATL/BMR/BMR/src/esi/atl/g48502/bmr/controler/Controler.java</file>
+            <file>file:/Users/alistairclerebaut/Desktop/ESI/2ème/ATL/BMR/BMR/src/esi/atl/g48502/bmr/model/Personne.java</file>
+            <file>file:/Users/alistairclerebaut/Desktop/ESI/2ème/ATL/BMR/BMR/src/esi/atl/g48502/bmr/model/Homme.java</file>
+            <file>file:/Users/alistairclerebaut/Desktop/ESI/2ème/ATL/BMR/BMR/src/esi/atl/g48502/bmr/main/Main.java</file>
+            <file>file:/Users/alistairclerebaut/Desktop/ESI/2ème/ATL/BMR/BMR/src/esi/atl/g48502/bmr/model/Femme.java</file>
         </group>
     </open-files>
 </project-private>

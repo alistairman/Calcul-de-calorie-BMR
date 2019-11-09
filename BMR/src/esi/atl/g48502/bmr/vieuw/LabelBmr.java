@@ -7,9 +7,9 @@ import javafx.scene.control.Label;
  *the class that represent all label in the vieuw
  * @author alistairclerebaut
  */
-public class LabelOfVieuw {
+public class LabelBmr {
     
-    private Vieuw vieuw;
+    private VieuwBmr vieuw;
     private Label labelInPut;
     private Label labelOutPut;
     private Label labelSize;
@@ -24,7 +24,7 @@ public class LabelOfVieuw {
      * create the labels with specific name of each
      * @param vieuw the specific vieuw where the label will be set
      */
-    public LabelOfVieuw(Vieuw vieuw){
+    public LabelBmr(VieuwBmr vieuw){
         this.labelInPut = new Label(" Données ");
         this.labelOutPut =  new Label(" Résultats ");
         this.labelSize = new Label(" Taille (cm) ");
@@ -45,18 +45,16 @@ public class LabelOfVieuw {
         labelInPut.setUnderline(true);
         labelOutPut.setUnderline(true);
         
-        vieuw.getGridPaneOfVieuw().getGridPaneInPut().add(labelInPut, 1, 0);
-        vieuw.getGridPaneOfVieuw().getGridPaneOutPut().add(labelOutPut, 1, 0);
-        vieuw.getGridPaneOfVieuw().getGridPaneInPut().add(labelSize, 0, 2);
-        vieuw.getGridPaneOfVieuw().getGridPaneInPut().add(labelWeight, 0, 3);
-        vieuw.getGridPaneOfVieuw().getGridPaneInPut().add(labelAge, 0, 4);
-        vieuw.getGridPaneOfVieuw().getGridPaneInPut().add(labelGender, 0, 5);
-        vieuw.getGridPaneOfVieuw().getGridPaneInPut().add(labelLifeStyle, 0, 7);
+        vieuw.getInput().add(labelInPut, 1, 0);
+        vieuw.getOutput().add(labelOutPut, 1, 0);
+        vieuw.getInput().add(labelSize, 0, 2);
+        vieuw.getInput().add(labelWeight, 0, 3);
+        vieuw.getInput().add(labelAge, 0, 4);
+        vieuw.getInput().add(labelGender, 0, 5);
+        vieuw.getInput().add(labelLifeStyle, 0, 7);
         
-        vieuw.getGridPaneOfVieuw().
-                getGridPaneOutPut().add(labelBmrResult, 0, 1);
-        vieuw.getGridPaneOfVieuw().
-                getGridPaneOutPut().add(labelCalorieResult, 0, 2);
+        vieuw.getOutput().add(labelBmrResult, 0, 1);
+        vieuw.getOutput().add(labelCalorieResult, 0, 2);
     }
     
 }

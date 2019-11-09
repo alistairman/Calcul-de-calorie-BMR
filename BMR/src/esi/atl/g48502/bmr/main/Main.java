@@ -9,7 +9,7 @@ import javafx.stage.Stage;
  * the class that launch the application
  * @author alistairclerebaut
  */
-public class Main extends Application{
+public class Main extends Application {
     
      
     /**

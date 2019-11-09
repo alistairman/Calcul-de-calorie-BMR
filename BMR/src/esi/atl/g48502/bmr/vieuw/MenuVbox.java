@@ -11,17 +11,17 @@ import javafx.scene.control.MenuItem;
  *class that represent the menu bar of vieuw
  * @author alistairclerebaut
  */
-public class MenuOfVbox {
+public class MenuVbox {
     private MenuBar menuBar;
     private Menu menuFile;
     private MenuItem exit;
-    private Vieuw vieuw;
+    private VieuwBmr vieuw;
 
     /**
      * create all option of menu wich will be set in the vieuw
      * @param vieuw the specific vieuw where the menu will be set
      */
-    public MenuOfVbox(Vieuw vieuw) {
+    public MenuVbox(VieuwBmr vieuw) {
         this.menuBar = new MenuBar();
         this.menuFile = new Menu("File");
         this.exit = new MenuItem("Exit");

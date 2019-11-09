@@ -8,8 +8,8 @@ import javafx.scene.control.Button;
  *the class that represent and set the button of veiuw
  * @author alistairclerebaut
  */
-public class ButtonOfVieuw {
-    private Vieuw vieuw;
+public class ButtonHbox {
+    private VieuwBmr vieuw;
     private Button buttonBmrCalcul;
     private Button buttonClear;
     
@@ -17,7 +17,7 @@ public class ButtonOfVieuw {
      * method that create the button with the specific vieuw 
      * @param vieuw the vieuw where the button will be set
      */
-    public ButtonOfVieuw(Vieuw vieuw){
+    public ButtonHbox(VieuwBmr vieuw){
         this.buttonBmrCalcul = new Button(" Caclul du BMR ");
         this.buttonClear = new Button("Clear");
         this.vieuw = vieuw;
