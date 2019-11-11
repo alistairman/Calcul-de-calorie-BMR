@@ -9,39 +9,6 @@ import static org.junit.Assert.*;
  * @author alistairclerebaut
  */
 public class FemmeTest {
-  
-    /**
-     * Test of getPoids method, of class Femme.
-     */
-    @Test
-    public void testGetPoids() {
-        Femme instance = new Femme(0,2,3);
-        double expResult = 0;
-        double result = instance.getPoids();
-        assertTrue(expResult==result);
-    }
-
-    /**
-     * Test of getTaille method, of class Femme.
-     */
-    @Test
-    public void testGetTaille() {
-        Femme instance = new Femme(1,2,3);
-        double expResult = 2;
-        double result = instance.getTaille();
-        assertTrue(expResult==result);
-    }
-
-    /**
-     * Test of getAge method, of class Femme.
-     */
-    @Test
-    public void testGetAge() {
-        Femme instance = new Femme(1,2,-5);
-        double expResult = -5;
-        double result = instance.getAge();
-        assertTrue(expResult==result);
-    }
 
     /**
      * Test of bmr method, of class Femme.
@@ -49,9 +16,13 @@ public class FemmeTest {
     @Test
     public void testBmr() {
         
-        Femme instance = new Femme(1,1,1);
-        int expResult = (int)661.7;
-        int result = instance.bmr();
+        Personne instance = new Femme();
+        instance.setAge(0);
+        instance.setTaille(0);
+        instance.setPoids(0);
+        instance.bmr();
+        int expResult = (int)655;
+        int result =(int) instance.getBmr();
         assertEquals(expResult, result);
     }
 
@@ -60,10 +31,15 @@ public class FemmeTest {
      */
     @Test
     public void testCalorie() {
-        double niveau = 0.0;
-        Femme instance = new Femme (1,2,3);
-        int expResult = 0;
-        int result = instance.calorie(niveau);
+        
+        Personne instance = new Femme ();
+        instance.setAge(0);
+        instance.setTaille(0);
+        instance.setPoids(0);
+        instance.bmr();
+        int expResult = 1015;
+        instance.calorie(Activities.ACTIF);
+        int result = (int)instance.getCalorie();
         assertEquals(expResult, result);
     }
     

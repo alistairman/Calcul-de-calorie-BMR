@@ -6,11 +6,7 @@ package esi.atl.g48502.bmr.model;
  * @author alistairclerebaut
  */
 public class Femme extends Personne{
-    
-   
-    
 
-    
     /**
      * the method that calculation the BMR of woman
      * @return the value of BMR
@@ -20,8 +16,5 @@ public class Femme extends Personne{
         super.bmr = Math.round((9.6*super.poids)+(1.8*super.taille)-
                 (4.7*super.age)+655);
         notifyObservers();
-
     }
-    
-    
 }

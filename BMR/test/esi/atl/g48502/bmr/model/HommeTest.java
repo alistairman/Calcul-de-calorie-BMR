@@ -10,48 +10,18 @@ import static org.junit.Assert.*;
  */
 public class HommeTest {
     /**
-     * Test of getPoids method, of class Homme.
-     */
-    @Test
-    public void testGetPoids() {
-        Homme instance = new Homme(0,2,3);
-        double expResult = 0;
-        double result = instance.getPoids();
-        assertTrue(expResult==result);
-    }
-
-    /**
-     * Test of getTaille method, of class Femme.
-     */
-    @Test
-    public void testGetTaille() {
-        Homme instance = new Homme(1,2,3);
-        double expResult = 2;
-        double result = instance.getTaille();
-        assertTrue(expResult==result);
-    }
-
-    /**
-     * Test of getAge method, of class Femme.
-     */
-    @Test
-    public void testGetAge() {
-        Homme instance = new Homme(1,2,-5);
-        double expResult = -5;
-        double result = instance.getAge();
-        assertTrue(expResult==result);
-    }
-
-    /**
      * Test of bmr method, of class Femme.
      */
     @Test
     public void testBmr() {
-        
-        Homme instance = new Homme(1,1,1);
-        int expResult =(int) 77.9;
-        int result = instance.bmr();
-        assertTrue(expResult==result);
+        Personne instance = new Homme ();
+        instance.setAge(1);
+        instance.setTaille(1);
+        instance.setPoids(1);
+        instance.bmr();
+        int expResult = 54;
+        int result = Math.abs((int)instance.getBmr());
+        assertEquals(expResult, result);
     }
 
     /**
@@ -59,10 +29,14 @@ public class HommeTest {
      */
     @Test
     public void testCalorie() {
-        double niveau = 1.0;
-        Homme instance = new Homme (1,1,1);
-        int expResult = (int) 77.9;
-        int result = instance.calorie(niveau);
+        Personne instance = new Homme ();
+        instance.setAge(1);
+        instance.setTaille(1);
+        instance.setPoids(1);
+        instance.bmr();
+        int expResult = 83;
+        instance.calorie(Activities.ACTIF);
+        int result = Math.abs((int)instance.getCalorie());
         assertEquals(expResult, result);
     }
     
