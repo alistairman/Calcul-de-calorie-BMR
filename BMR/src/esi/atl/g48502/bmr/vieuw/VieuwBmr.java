@@ -1,6 +1,4 @@
-
 package esi.atl.g48502.bmr.vieuw;
-
 
 import esi.atl.g48502.bmr.model.Activities;
 import java.util.ArrayList;
@@ -12,7 +10,6 @@ import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.chart.NumberAxis;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
@@ -35,65 +32,45 @@ public class VieuwBmr {
     
     private Stage primaryStage;
     private BorderPane root;
-    
     private MenuVbox menuOfVbox;
     protected HBox hBoxRoot;
     protected VBox vBoxBmr;
     protected HBox hBoxGraphic;
     protected HBox hBoxData;
-    
     protected TabGraphe graphic;
-    
     private InputGridPane input;
-    
     private OutputGridPane output;
-    
-    
     private LabelBmr labelOfVieuw;
-    
-    
     private ChoiceBox choiceBoxActivity ;
-    
     private ButtonHbox buttonVieuw;
-    
     private List<Activities> activity;
     
-
     /**
      * create the vieuw of the application 
      * @param primaryStage where the vieuw will be set
      */
     public VieuwBmr(Stage primaryStage) {
         this.primaryStage = primaryStage;
-        this.root = new BorderPane();
-        
+        root = new BorderPane();
         hBoxRoot = new HBox();
         hBoxGraphic = new HBox();
         vBoxBmr = new VBox(12);
         hBoxData= new HBox();
         graphic = new TabGraphe();
-        
-        this.menuOfVbox = new MenuVbox(this);
-        
-        this.input = new InputGridPane();
-        this.output = new OutputGridPane();
-         
-        this.labelOfVieuw = new LabelBmr(this);
-        this.buttonVieuw = new ButtonHbox(this);
-        
-        this.choiceBoxActivity = new ChoiceBox();
-        
-        this.activity = new ArrayList<>();
+        menuOfVbox = new MenuVbox(this);
+        input = new InputGridPane();
+        output = new OutputGridPane();
+        labelOfVieuw = new LabelBmr(this);
+        buttonVieuw = new ButtonHbox(this);
+        choiceBoxActivity = new ChoiceBox();
+        activity = new ArrayList<>();
         activity.addAll(Arrays.asList(Activities.values()));
-        
     }
 
     public TabGraphe getGraphic() {
         return graphic;
     }
 
-    
-    
     /**
      * method that make the class of button accessible
      * @return the buttons on class
@@ -106,29 +83,10 @@ public class VieuwBmr {
      * method that make the VBox of vieuw interface accessible
      * @return the VBox of the user interface
      */
-    public VBox getvBox() {
+    VBox getvBox() {
         return vBoxBmr;
     }
-    
-  
-
-  
-    /**
-     * method that make the choiceBox accessible
-     * @return the choicebox from the user interface
-     */
-    public ChoiceBox getChoiceBoxActivity() {
-        return choiceBoxActivity;
-    }
-
-    /**
-     * method that make the menubar of interface accessible
-     * @return the menus from the user interface
-     */
-    public MenuVbox getMenuOfVbox() {
-        return menuOfVbox;
-    }
-
+   
     /**
      * method that make the gridpane of interface accessible
      * @return the gridpanes from the user interface
@@ -141,8 +99,6 @@ public class VieuwBmr {
         return output;
     }
     
-    
-    
     /**
      * method that set all components of the user interface
      * and show the primaryStage
@@ -152,36 +108,26 @@ public class VieuwBmr {
     public void start(Stage primaryStage) {
         
         root.setCenter(hBoxRoot);
-        
         hBoxGraphic.setAlignment(Pos.CENTER);
         hBoxGraphic.autosize();
         hBoxGraphic.setBackground(new Background(new BackgroundFill
         (Color.rgb(147, 150, 171), CornerRadii.EMPTY, Insets.EMPTY)));
         
         hBoxGraphic.getChildren().add(graphic);
-        
         hBoxData.setAlignment(Pos.CENTER);
         hBoxData.autosize();
         menuOfVbox.setMenuVbox();
-        
         hBoxData.getChildren().add(input);
         hBoxData.getChildren().add(output);
-        
-        
         vBoxBmr.getChildren().add(hBoxData);
-        
         hBoxRoot.getChildren().add(vBoxBmr);
         hBoxRoot.getChildren().add(hBoxGraphic);
-        
-        
-        
         labelOfVieuw.setLabelOfVieuw();
-        
         buttonVieuw.setButtonVieuw();
           
         choiceBoxActivity.setItems(
                 FXCollections.observableArrayList(this.activity));
-        this.input.add(choiceBoxActivity, 1, 7);
+        input.add(choiceBoxActivity, 1, 7);
         
         menuOfVbox.getExit().addEventHandler(ActionEvent.ACTION, 
                 new EventHandler<ActionEvent>(){
@@ -230,11 +176,33 @@ public class VieuwBmr {
         return (Activities)choiceBoxActivity.getValue();
     }
     
+    public boolean isHommeSelected(){
+        return input.getGroupRadioButton().getSelectedToggle()==
+                    input.getRadioButtonHomme();
+    }
+    
+    public boolean isFemmeSelected(){
+        return input.getGroupRadioButton().getSelectedToggle()==
+                    input.getRadioButtonFemme();
+    }
+    
+    public boolean isInvalidInput(){
+        return input.getTextSize().getText().isEmpty() || input.getTextWeight().
+            getText().isEmpty() || input.getTextAge().getText().isEmpty();
+    }
+    
+    public void invalidInput(){
+        output.setTextBmr(" Failed! ");
+        output.getTextBmr().setStyle("-fx-text-fill:red");
+        output.setTextCalorie(" Failed! ");
+        output.getTextCalorie().setStyle("-fx-text-fill:red");
+    }
+    
     /**
      * method that consume the event key typed when it was a charactere
      * @param e event key typed
      */
-    public void inputOnlyNumber(KeyEvent e) {
+    void inputOnlyNumber(KeyEvent e) {
         if (e.getCharacter().matches("[^0-9]")){
             e.consume();
         }
@@ -245,13 +213,11 @@ public class VieuwBmr {
      * @param e event key typed
      */
     public void invalidInput(KeyEvent e) {
-        if (e.getCharacter().matches("[-0]")){
+        if(e.getCharacter().matches("[-0]") || e.getCharacter().charAt(0)=='0'){
+            e.consume();
             Alert error = new Alert(Alert.AlertType.ERROR,
                     "WARNING",ButtonType.CLOSE);
             error.showAndWait();
         }
     }
-
-   
-    
 }

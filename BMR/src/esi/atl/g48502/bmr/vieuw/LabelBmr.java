@@ -1,4 +1,3 @@
-
 package esi.atl.g48502.bmr.vieuw;
 
 import javafx.scene.control.Label;
@@ -24,27 +23,25 @@ public class LabelBmr {
      * create the labels with specific name of each
      * @param vieuw the specific vieuw where the label will be set
      */
-    public LabelBmr(VieuwBmr vieuw){
-        this.labelInPut = new Label(" Données ");
-        this.labelOutPut =  new Label(" Résultats ");
-        this.labelSize = new Label(" Taille (cm) ");
-        this.labelWeight = new Label(" Poids (Kg) ");
-        this.labelAge  = new Label(" Age (années) ");
-        this.labelGender  = new Label(" Sexe ");
-        this.labelLifeStyle = new Label(" Style de vie ");
-        this.labelBmrResult = new Label(" BMR ");
-        this.labelCalorieResult = new Label(" Calories "); 
+    LabelBmr(VieuwBmr vieuw){
+        labelInPut = new Label(" Données ");
+        labelOutPut =  new Label(" Résultats ");
+        labelSize = new Label(" Taille (cm) ");
+        labelWeight = new Label(" Poids (Kg) ");
+        labelAge  = new Label(" Age (années) ");
+        labelGender  = new Label(" Sexe ");
+        labelLifeStyle = new Label(" Style de vie ");
+        labelBmrResult = new Label(" BMR ");
+        labelCalorieResult = new Label(" Calories "); 
         this.vieuw = vieuw;
     }
 
-    
     /**
      * method that set all labels in the specific vieuw
      */
-    public void setLabelOfVieuw(){
+    void setLabelOfVieuw(){
         labelInPut.setUnderline(true);
         labelOutPut.setUnderline(true);
-        
         vieuw.getInput().add(labelInPut, 1, 0);
         vieuw.getOutput().add(labelOutPut, 1, 0);
         vieuw.getInput().add(labelSize, 0, 2);
@@ -52,9 +49,7 @@ public class LabelBmr {
         vieuw.getInput().add(labelAge, 0, 4);
         vieuw.getInput().add(labelGender, 0, 5);
         vieuw.getInput().add(labelLifeStyle, 0, 7);
-        
         vieuw.getOutput().add(labelBmrResult, 0, 1);
         vieuw.getOutput().add(labelCalorieResult, 0, 2);
     }
-    
 }

@@ -1,4 +1,3 @@
-
 package esi.atl.g48502.bmr.vieuw;
 
 import esi.atl.g48502.bmr.model.Homme;
@@ -59,8 +58,5 @@ public class TabGraphe extends TabPane{
             grapheBmrVsHeight.addFemmeData(personne.getBmr(),personne.getTaille());
             grapheCalorieVsHeight.addFemmeData(personne.getBmr(),personne.getTaille());
         }
-        
-        
-        
     }
 }

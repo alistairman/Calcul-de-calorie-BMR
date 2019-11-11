@@ -1,4 +1,3 @@
-
 package esi.atl.g48502.bmr.vieuw;
 
 import javafx.scene.chart.Axis;
@@ -14,7 +13,7 @@ public class GrapheBmr extends LineChart{
     private final XYChart.Series seriesHomme;
     private final XYChart.Series seriesFemme;
 
-    public GrapheBmr(Axis xAxis, Axis yAxis,String xAxisTitle,String yAxisTitle,
+    GrapheBmr(Axis xAxis, Axis yAxis,String xAxisTitle,String yAxisTitle,
             String grapheTitle) {
         super(xAxis, yAxis);
         setTitle(grapheTitle);
@@ -29,13 +28,12 @@ public class GrapheBmr extends LineChart{
         this.getData().addAll(seriesHomme,seriesFemme);
     }
 
-    public void addHommeData(double x, double y) {
+    void addHommeData(double x, double y) {
         seriesHomme.getData().add(new XYChart.Data(x, y));
     }
 
     
-    public void addFemmeData(double x, double y) {
+    void addFemmeData(double x, double y) {
         seriesFemme.getData().add(new XYChart.Data(x, y));
     }
-    
 }

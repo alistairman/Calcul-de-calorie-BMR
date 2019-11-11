@@ -1,4 +1,3 @@
-
 package esi.atl.g48502.bmr.vieuw;
 
 import javafx.geometry.Pos;
@@ -17,9 +16,9 @@ public class ButtonHbox {
      * method that create the button with the specific vieuw 
      * @param vieuw the vieuw where the button will be set
      */
-    public ButtonHbox(VieuwBmr vieuw){
-        this.buttonBmrCalcul = new Button(" Caclul du BMR ");
-        this.buttonClear = new Button("Clear");
+    ButtonHbox(VieuwBmr vieuw){
+        buttonBmrCalcul = new Button(" Caclul du BMR ");
+        buttonClear = new Button("Clear");
         this.vieuw = vieuw;
     }
 
@@ -42,7 +41,7 @@ public class ButtonHbox {
     /**
      * method set the button in the specific vieuw
      */
-    public void setButtonVieuw(){
+    void setButtonVieuw(){
         buttonBmrCalcul.setPrefWidth(700);
         buttonBmrCalcul.setAlignment(Pos.CENTER);
         vieuw.getvBox().getChildren().add(buttonBmrCalcul);
@@ -51,5 +50,4 @@ public class ButtonHbox {
         buttonClear.setAlignment(Pos.CENTER);
         vieuw.getvBox().getChildren().add(buttonClear);
     }
-    
 }

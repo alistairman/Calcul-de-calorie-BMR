@@ -1,4 +1,3 @@
-
 package esi.atl.g48502.bmr.vieuw;
 
 import javafx.geometry.Insets;
@@ -15,8 +14,7 @@ public class OutputGridPane extends GridPane{
     private TextField textBmr ;
     private TextField textCalorie ;
     
-    
-    public OutputGridPane(){
+    OutputGridPane(){
         this.setAlignment(Pos.BASELINE_RIGHT);
         this.setPadding(new Insets(20));
         this.setHgap(10);
@@ -34,15 +32,14 @@ public class OutputGridPane extends GridPane{
     }
 
     public void setTextBmr(String textBmr) {
-        
         this.textBmr.setText(textBmr);
     }
 
-    public TextField getTextBmr() {
+    TextField getTextBmr() {
         return textBmr;
     }
 
-    public TextField getTextCalorie() {
+    TextField getTextCalorie() {
         return textCalorie;
     }
     
@@ -54,5 +51,4 @@ public class OutputGridPane extends GridPane{
         this.textBmr.clear();
         this.textCalorie.clear();
     }
-    
 }
