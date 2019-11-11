@@ -46,8 +46,6 @@ public class OutputGridPane extends GridPane{
         return textCalorie;
     }
     
-    
-
     public void setTextCalorie(String textCalorie) {
         this.textCalorie.setText(textCalorie);
     }

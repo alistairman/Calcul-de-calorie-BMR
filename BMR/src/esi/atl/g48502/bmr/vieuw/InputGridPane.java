@@ -80,8 +80,8 @@ public class InputGridPane extends GridPane {
     }
 
 
-    public double getAge() {
-        return Double.parseDouble(textAge.getText());
+    public int getAge() {
+        return Integer.parseInt(textAge.getText());
     }
     
     

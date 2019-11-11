@@ -11,7 +11,7 @@ public class Personne extends Observable{
     
     protected double poids;
     protected double taille;
-    protected double age;
+    protected int age;
     protected double bmr;
     protected double calorie;
 
@@ -35,7 +35,7 @@ public class Personne extends Observable{
         notifyObservers();
     }
 
-    public void setAge(double age) {
+    public void setAge(int age) {
         this.age = age;
         notifyObservers();
     }
@@ -52,12 +52,12 @@ public class Personne extends Observable{
      */
     public void calorie(Activities niveau){
         calorie = (int) ((int) bmr*niveau.getNb());
-        notifyObserver();
+        notifyObservers();
     }
     
     public void notifyObserver(){
         setChanged();
-        notifyObserver();
+        notifyObservers();
     }
     
 }

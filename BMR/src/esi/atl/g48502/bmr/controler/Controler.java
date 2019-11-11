@@ -5,12 +5,14 @@ import esi.atl.g48502.bmr.model.Activities;
 import esi.atl.g48502.bmr.model.Femme;
 import esi.atl.g48502.bmr.model.Homme;
 import esi.atl.g48502.bmr.model.Personne;
+import esi.atl.g48502.bmr.vieuw.GrapheBmr;
 import esi.atl.g48502.bmr.vieuw.VieuwBmr;
 import static java.lang.Integer.parseInt;
 import java.util.Observable;
 import java.util.Observer;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.chart.LineChart;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.input.KeyEvent;
@@ -21,7 +23,7 @@ import javafx.stage.Stage;
  * that class control diferent actions done on application
  * @author alistairclerebaut
  */
-public class Controler implements Observer{
+public class Controler implements Observer {
     
     
     
@@ -36,7 +38,7 @@ public class Controler implements Observer{
      */
     public Controler(Stage primaryStage){
         this.vieuw = new VieuwBmr(primaryStage);
-       
+        personne = new Personne();
     }
 
     /**
@@ -53,7 +55,7 @@ public class Controler implements Observer{
      * @param primaryStage the stage where the interface is set
      */
     public void start(Stage primaryStage) {
-         personne.addObserver(this);
+        personne.addObserver(this);
         
         vieuw.getButtonVieuw().getButtonBmrCalcul().
                 setOnAction((ActionEvent e) -> {
@@ -78,6 +80,12 @@ public class Controler implements Observer{
                 personne.setTaille(vieuw.getInput().getSize());
                 personne.bmr();
                 personne.calorie(vieuw.getActivity());
+                vieuw.getOutput().setTextBmr(Double.toString((personne.getBmr())));
+                vieuw.getOutput().setTextCalorie(Double.toString(personne.getCalorie()));
+                
+                vieuw.getGraphic().getData().add(personne);
+                //vieuw.getGraphic()= new GrapheBmr(new LineChart(input.getWeight(), personne.getBmr()));
+
             }
             
             else if(vieuw.getInput().getGroupRadioButton().getSelectedToggle()==
@@ -89,6 +97,9 @@ public class Controler implements Observer{
                 personne.setTaille(vieuw.getInput().getSize());
                 personne.bmr();
                 personne.calorie(vieuw.getActivity());
+                vieuw.getOutput().setTextBmr(Double.toString((personne.getBmr())));
+                vieuw.getOutput().setTextCalorie(Double.toString(personne.getCalorie()));
+                vieuw.getGraphic().getData().add(personne);
             }
             
         });
@@ -97,29 +108,18 @@ public class Controler implements Observer{
             vieuw.getOutput().reset();
             vieuw.getInput().reset();
         });
+        
+        
        
     }
     
 
-//    @Override
-//    public void update(Observable o, Object arg) {
-//        vieuw.getOutput().setTextBmr(Double.toString(((Personne)o).getBmr()));
-//        vieuw.getOutput().setTextCalorie(Double.toString(((Personne)o).getCalorie()));
-//    }
-
     public void update() {
-        vieuw.getOutput().setTextBmr(Double.toString(personne.getBmr()));
-        vieuw.getOutput().setTextCalorie(Double.toString(personne.getCalorie()));
+        
     }
 
     @Override
     public void update(Observable o, Object arg) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    
 }
-
-    
-    
-

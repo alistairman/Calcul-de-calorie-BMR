@@ -20,7 +20,7 @@ public class Homme extends Personne{
     public void bmr(){
         super.bmr = Math.round((13.7*super.poids)+(5*super.taille)-
                 (6.8*super.age+66));
-        //notifyObserver();
+        notifyObservers();
        
     }
     

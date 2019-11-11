@@ -3,25 +3,27 @@ package esi.atl.g48502.bmr.vieuw;
 
 
 import esi.atl.g48502.bmr.model.Activities;
-import esi.atl.g48502.bmr.model.Personne;
-import esi.atl.g48502.bmr.util.Observer;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Observable;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.chart.NumberAxis;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 
@@ -35,9 +37,13 @@ public class VieuwBmr {
     private BorderPane root;
     
     private MenuVbox menuOfVbox;
+    //private LineChart<Number, Number> lineChart;
+    protected HBox hBoxRoot;
+    protected VBox vBoxBmr;
+    protected HBox hBoxGraphic;
+    protected HBox hBoxData;
     
-    protected VBox vBox;
-    protected HBox hBox;
+    protected GrapheBmr graphic;
     
     private InputGridPane input;
     
@@ -59,13 +65,15 @@ public class VieuwBmr {
      * @param primaryStage where the vieuw will be set
      */
     public VieuwBmr(Stage primaryStage) {
-        
         this.primaryStage = primaryStage;
         this.root = new BorderPane();
         
-        this.vBox = new VBox(12);
-        this.hBox= new HBox();
+        hBoxRoot = new HBox();
+        hBoxGraphic = new HBox();
+        vBoxBmr = new VBox(12);
+        hBoxData= new HBox();
         
+        graphic = new GrapheBmr(new NumberAxis(),new NumberAxis());
         this.menuOfVbox = new MenuVbox(this);
         
         this.input = new InputGridPane();
@@ -82,6 +90,12 @@ public class VieuwBmr {
         
     }
 
+    public GrapheBmr getGraphic() {
+        return graphic;
+    }
+
+    
+    
     /**
      * method that make the class of button accessible
      * @return the buttons on class
@@ -95,7 +109,7 @@ public class VieuwBmr {
      * @return the VBox of the user interface
      */
     public VBox getvBox() {
-        return vBox;
+        return vBoxBmr;
     }
     
   
@@ -139,17 +153,28 @@ public class VieuwBmr {
      */
     public void start(Stage primaryStage) {
         
-        root.setCenter(vBox);
+        root.setCenter(hBoxRoot);
         
-        hBox.setAlignment(Pos.CENTER);
-        hBox.autosize();
+        hBoxGraphic.setAlignment(Pos.CENTER);
+        hBoxGraphic.setMinWidth(50);
+        hBoxGraphic.setBackground(new Background(new BackgroundFill
+        (Color.rgb(147, 150, 171), CornerRadii.EMPTY, Insets.EMPTY)));
         
-        hBox.getChildren().add(input);
-        hBox.getChildren().add(output);
+        hBoxGraphic.getChildren().add(graphic);
         
+        hBoxData.setAlignment(Pos.CENTER);
+        hBoxData.autosize();
         menuOfVbox.setMenuVbox();
         
-        vBox.getChildren().add(hBox);
+        hBoxData.getChildren().add(input);
+        hBoxData.getChildren().add(output);
+        
+        
+        vBoxBmr.getChildren().add(hBoxData);
+        
+        hBoxRoot.getChildren().add(vBoxBmr);
+        hBoxRoot.getChildren().add(hBoxGraphic);
+        
         
         
         labelOfVieuw.setLabelOfVieuw();
@@ -196,9 +221,7 @@ public class VieuwBmr {
             }
         });
         
-        
-         
-        Scene scene = new Scene(root, 700, 400);
+        Scene scene = new Scene(root, 1000, 400);
           
         primaryStage.setScene(scene);
         primaryStage.setTitle(" Calcul du BMR ");
@@ -230,5 +253,7 @@ public class VieuwBmr {
             error.showAndWait();
         }
     }
+
+   
     
 }

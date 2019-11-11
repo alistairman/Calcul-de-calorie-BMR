@@ -58,7 +58,7 @@ public class MenuVbox {
     public void setMenuVbox(){
         menuFile.getItems().add(exit);
         menuBar.getMenus().add(menuFile);
-        this.vieuw.vBox.getChildren().add(menuBar);
+        this.vieuw.vBoxBmr.getChildren().add(menuBar);
     }
     
 }

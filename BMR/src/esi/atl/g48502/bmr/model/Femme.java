@@ -19,7 +19,7 @@ public class Femme extends Personne{
     public void bmr(){
         super.bmr = Math.round((9.6*super.poids)+(1.8*super.taille)-
                 (4.7*super.age)+655);
-        //notifyObserver();
+        notifyObservers();
 
     }
     
