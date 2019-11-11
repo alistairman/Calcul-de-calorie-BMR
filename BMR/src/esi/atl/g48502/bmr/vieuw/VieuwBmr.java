@@ -37,13 +37,12 @@ public class VieuwBmr {
     private BorderPane root;
     
     private MenuVbox menuOfVbox;
-    //private LineChart<Number, Number> lineChart;
     protected HBox hBoxRoot;
     protected VBox vBoxBmr;
     protected HBox hBoxGraphic;
     protected HBox hBoxData;
     
-    protected GrapheBmr graphic;
+    protected TabGraphe graphic;
     
     private InputGridPane input;
     
@@ -72,14 +71,13 @@ public class VieuwBmr {
         hBoxGraphic = new HBox();
         vBoxBmr = new VBox(12);
         hBoxData= new HBox();
+        graphic = new TabGraphe();
         
-        graphic = new GrapheBmr(new NumberAxis(),new NumberAxis());
         this.menuOfVbox = new MenuVbox(this);
         
         this.input = new InputGridPane();
         this.output = new OutputGridPane();
-        
-        
+         
         this.labelOfVieuw = new LabelBmr(this);
         this.buttonVieuw = new ButtonHbox(this);
         
@@ -90,7 +88,7 @@ public class VieuwBmr {
         
     }
 
-    public GrapheBmr getGraphic() {
+    public TabGraphe getGraphic() {
         return graphic;
     }
 
@@ -156,7 +154,7 @@ public class VieuwBmr {
         root.setCenter(hBoxRoot);
         
         hBoxGraphic.setAlignment(Pos.CENTER);
-        hBoxGraphic.setMinWidth(50);
+        hBoxGraphic.autosize();
         hBoxGraphic.setBackground(new Background(new BackgroundFill
         (Color.rgb(147, 150, 171), CornerRadii.EMPTY, Insets.EMPTY)));
         
@@ -221,7 +219,7 @@ public class VieuwBmr {
             }
         });
         
-        Scene scene = new Scene(root, 1000, 400);
+        Scene scene = new Scene(root, 1200, 400);
           
         primaryStage.setScene(scene);
         primaryStage.setTitle(" Calcul du BMR ");

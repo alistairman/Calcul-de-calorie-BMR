@@ -14,27 +14,27 @@ public class GrapheBmr extends LineChart{
     private final XYChart.Series seriesHomme;
     private final XYChart.Series seriesFemme;
 
-    public GrapheBmr(Axis xAxis, Axis yAxis) {
+    public GrapheBmr(Axis xAxis, Axis yAxis,String xAxisTitle,String yAxisTitle,
+            String grapheTitle) {
         super(xAxis, yAxis);
-        
-        xAxis.setLabel("Weight");
-        yAxis.setLabel("BMR");
+        setTitle(grapheTitle);
+        xAxis.setLabel(xAxisTitle);
+        yAxis.setLabel(yAxisTitle);
         
         seriesHomme = new XYChart.Series();
         seriesHomme.setName("DataHomme");
 
         seriesFemme = new XYChart.Series();
         seriesFemme.setName("DataFemme");
-        setTitle("BMR Index VS Weight");
-        getData().addAll(seriesHomme,seriesFemme);
+        this.getData().addAll(seriesHomme,seriesFemme);
     }
 
-    void addSeriesManLineChart(double x, double y) {
+    public void addHommeData(double x, double y) {
         seriesHomme.getData().add(new XYChart.Data(x, y));
     }
 
     
-    void addSeriesWomanLineChart(double x, double y) {
+    public void addFemmeData(double x, double y) {
         seriesFemme.getData().add(new XYChart.Data(x, y));
     }
     

@@ -19,6 +19,15 @@ public class Personne extends Observable{
         return bmr;
     }
 
+    public double getPoids() {
+        return poids;
+    }
+
+    public double getTaille() {
+        return taille;
+    }
+
+    
     public double getCalorie() {
         return calorie;
     }

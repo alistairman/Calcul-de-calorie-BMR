@@ -82,10 +82,7 @@ public class Controler implements Observer {
                 personne.calorie(vieuw.getActivity());
                 vieuw.getOutput().setTextBmr(Double.toString((personne.getBmr())));
                 vieuw.getOutput().setTextCalorie(Double.toString(personne.getCalorie()));
-                
-                vieuw.getGraphic().getData().add(personne);
-                //vieuw.getGraphic()= new GrapheBmr(new LineChart(input.getWeight(), personne.getBmr()));
-
+                vieuw.getGraphic().upDate(personne);
             }
             
             else if(vieuw.getInput().getGroupRadioButton().getSelectedToggle()==
@@ -99,7 +96,7 @@ public class Controler implements Observer {
                 personne.calorie(vieuw.getActivity());
                 vieuw.getOutput().setTextBmr(Double.toString((personne.getBmr())));
                 vieuw.getOutput().setTextCalorie(Double.toString(personne.getCalorie()));
-                vieuw.getGraphic().getData().add(personne);
+                vieuw.getGraphic().upDate(personne);
             }
             
         });
