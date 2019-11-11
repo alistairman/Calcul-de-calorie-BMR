@@ -6,43 +6,35 @@ import esi.atl.g48502.bmr.model.Personne;
 import esi.atl.g48502.bmr.vieuw.VieuwBmr;
 import java.util.Observable;
 import java.util.Observer;
+import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.stage.Stage;
 
 /**
- *the class that represent the users interface
+ * the class that represent the users interface
  * that class control diferent actions done on application
  * @author alistairclerebaut
  */
-public class Controler implements Observer {
+public class Controler extends Application implements Observer {
     
     private Personne personne;
-    private final VieuwBmr vieuw;
-    
-    /**
-     * create the interface with initial components
-     * @param primaryStage where the interface is launched
-     */
-    public Controler(Stage primaryStage){
-        this.vieuw = new VieuwBmr(primaryStage);
-        personne = new Personne();
-    }
+    private final VieuwBmr vieuw = new VieuwBmr();
 
     /**
-     * method make the vieuw class accessible
-     * @return the class of vieuw
+     * we launch the application here
+     * @param args the diferent arguments of command line
      */
-    public VieuwBmr getVieuw() {
-        return vieuw;
+    public static void main(String[] args) {   
+        launch();
     }
-
     /**
      * the method that set the actions must be done on the user interface
      * @param primaryStage the stage where the interface is set
      */
+    @Override
     public void start(Stage primaryStage) {
-        personne.addObserver(this);
-        
+        //personne.addObserver(this);
+        vieuw.start(primaryStage);
         vieuw.getButtonVieuw().getButtonBmrCalcul().
                 setOnAction((ActionEvent e) -> {
             if(vieuw.isInvalidInput()){
@@ -73,7 +65,6 @@ public class Controler implements Observer {
                 vieuw.getGraphic().upDate(personne);
             }
         });
-        
         vieuw.getButtonVieuw().getButtonClear().setOnAction((ActionEvent e)->{
             vieuw.getOutput().reset();
             vieuw.getInput().reset();
@@ -81,7 +72,6 @@ public class Controler implements Observer {
     }
     
     public void update() {
-        
     }
 
     @Override

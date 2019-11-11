@@ -30,7 +30,6 @@ import javafx.stage.Stage;
  */
 public class VieuwBmr {
     
-    private Stage primaryStage;
     private BorderPane root;
     private MenuVbox menuOfVbox;
     protected HBox hBoxRoot;
@@ -46,11 +45,9 @@ public class VieuwBmr {
     private List<Activities> activity;
     
     /**
-     * create the vieuw of the application 
-     * @param primaryStage where the vieuw will be set
+     * create the vieuw of the bmr application 
      */
-    public VieuwBmr(Stage primaryStage) {
-        this.primaryStage = primaryStage;
+    public VieuwBmr() {
         root = new BorderPane();
         hBoxRoot = new HBox();
         hBoxGraphic = new HBox();
@@ -67,6 +64,10 @@ public class VieuwBmr {
         activity.addAll(Arrays.asList(Activities.values()));
     }
 
+    /**
+     * the method that make the graphic tab accessible
+     * @return the graphic tab
+     */
     public TabGraphe getGraphic() {
         return graphic;
     }
@@ -88,20 +89,24 @@ public class VieuwBmr {
     }
    
     /**
-     * method that make the gridpane of interface accessible
-     * @return the gridpanes from the user interface
+     * method that make the input gridpane of interface accessible
+     * @return the input gridpanes from the user interface
      */
     public InputGridPane getInput() {
         return input;
     }
 
+    /**
+     * method that make the output gridpane of interface accessible
+     * @return the output gridpanes from the user interface
+     */
     public OutputGridPane getOutput() {
         return output;
     }
     
     /**
      * method that set all components of the user interface
-     * and show the primaryStage
+     * and show and set the primaryStage
      * @param primaryStage the stage where the component will be set
      *
      */
@@ -172,25 +177,44 @@ public class VieuwBmr {
         primaryStage.show();
     }   
 
+    /**
+     * the method that get the value of activity selected
+     * @return the value of activity selected
+     */
     public Activities getActivity(){
         return (Activities)choiceBoxActivity.getValue();
     }
     
+    /**
+     * the method that check if the man radiobutton is selected
+     * @return true if the man radioButton is selected
+     */
     public boolean isHommeSelected(){
         return input.getGroupRadioButton().getSelectedToggle()==
                     input.getRadioButtonHomme();
     }
     
+    /**
+     * the method that check if the woman radiobutton is selected
+     * @return true if the woman radioButton is selected
+     */
     public boolean isFemmeSelected(){
         return input.getGroupRadioButton().getSelectedToggle()==
                     input.getRadioButtonFemme();
     }
     
+    /**
+     * the method that check if all textfield is empty
+     * @return true if one of textField is empty
+     */
     public boolean isInvalidInput(){
         return input.getTextSize().getText().isEmpty() || input.getTextWeight().
             getText().isEmpty() || input.getTextAge().getText().isEmpty();
     }
     
+    /**
+     * the method called and show a message if one of textField is empty
+     */
     public void invalidInput(){
         output.setTextBmr(" Failed! ");
         output.getTextBmr().setStyle("-fx-text-fill:red");

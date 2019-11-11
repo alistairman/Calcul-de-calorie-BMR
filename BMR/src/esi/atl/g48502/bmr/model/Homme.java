@@ -1,4 +1,3 @@
-
 package esi.atl.g48502.bmr.model;
 
 /**
@@ -8,8 +7,7 @@ package esi.atl.g48502.bmr.model;
 public class Homme extends Personne{
 
     /**
-     * the method that calculation the BMR of man
-     * @return the value of BMR
+     * the method that calculation and set the BMR of man
      */
     @Override
     public void bmr(){

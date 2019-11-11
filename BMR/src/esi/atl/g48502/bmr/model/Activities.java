@@ -10,10 +10,18 @@ public enum Activities {
     
     private double nb;
     
+    /**
+     * method that create and set the activity 
+     * @param nbAct the value of the activity 
+     */
     Activities(double nbAct){
         nb = nbAct;
     }
 
+    /**
+     * the method that make the value of activity accessible
+     * @return the value of he activity
+     */
     public double getNb() {
         return nb;
     }

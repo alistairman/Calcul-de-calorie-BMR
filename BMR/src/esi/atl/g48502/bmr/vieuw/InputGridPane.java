@@ -8,7 +8,7 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.GridPane;
 
 /**
- *
+ *the class that represent input data of application
  * @author alistairclerebaut
  */
 public class InputGridPane extends GridPane {
@@ -20,6 +20,9 @@ public class InputGridPane extends GridPane {
     private RadioButton radioButtonFemme;
     private ToggleGroup groupRadioButton;
     
+    /**
+     * the method that create and set all input fields 
+     */
     InputGridPane(){
         this.setAlignment(Pos.TOP_LEFT);
         this.setPadding(new Insets(20));
@@ -49,26 +52,50 @@ public class InputGridPane extends GridPane {
         this.add(radioButtonFemme, 1, 6);
     }
 
+    /**
+     * the method that make the height field accessible
+     * @return the text felt in the height field
+     */
     TextField getTextSize() {
         return textSize;
     }
 
+    /**
+     * the method that make the weight field accessible
+     * @return the text felt in the weight field
+     */
     TextField getTextWeight() {
         return textWeight;
     }
 
+    /**
+     * the method that make the age field accessible
+     * @return the text felt in the age field
+     */
     TextField getTextAge() {
         return textAge;
     }
 
+    /**
+     * the method that make the height value accessible
+     * @return the value of height felt
+     */
     public double getSize() {
         return Double.parseDouble(textSize.getText());
     }
 
+    /**
+     * the method that make the weight value accessible
+     * @return the value of weight felt
+     */
     public double getWeight() {
         return Double.parseDouble(textWeight.getText());
     }
 
+    /**
+     * the method that make the age value accessible
+     * @return the value of age felt
+     */
     public int getAge() {
         return Integer.parseInt(textAge.getText());
     }
@@ -97,6 +124,9 @@ public class InputGridPane extends GridPane {
         return groupRadioButton;
     }
     
+    /**
+     * the method that clear all input fields
+     */
     public void reset(){
         this.textAge.clear();
         this.textSize.clear();
