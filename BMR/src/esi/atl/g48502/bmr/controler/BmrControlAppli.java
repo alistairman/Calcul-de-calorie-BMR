@@ -15,7 +15,7 @@ import javafx.stage.Stage;
  * that class control diferent actions done on application
  * @author alistairclerebaut
  */
-public class Controler extends Application implements Observer {
+public class BmrControlAppli extends Application implements Observer {
     
     private Personne personne;
     private final VieuwBmr vieuw = new VieuwBmr();
