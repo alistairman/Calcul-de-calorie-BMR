@@ -2,9 +2,11 @@
 package esi.atl.g48502.bmr.util;
 
 /**
- *
+ *  the class of represent the Observer
  * @author alistairclerebaut
  */
 public interface Observer {
-    void update();
+    
+    public void update();
+    
 }

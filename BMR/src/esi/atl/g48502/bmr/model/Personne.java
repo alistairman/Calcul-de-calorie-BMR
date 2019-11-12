@@ -1,6 +1,6 @@
 package esi.atl.g48502.bmr.model;
 
-import java.util.Observable;
+import esi.atl.g48502.bmr.util.Observable;
 
 /**
  *the method that represent a person
@@ -73,8 +73,10 @@ public class Personne extends Observable{
         notifyObservers();
     }
     
+    /**
+     * the initial method of bmr calcul
+     */
     public void bmr(){
-        
     }
 
     /**
@@ -86,10 +88,4 @@ public class Personne extends Observable{
         calorie = (int) ((int) bmr*niveau.getNb());
         notifyObservers();
     }
-    
-    public void notifyObserver(){
-        setChanged();
-        notifyObservers();
-    }
-    
 }

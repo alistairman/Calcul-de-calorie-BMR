@@ -10,8 +10,6 @@ import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Background;
@@ -111,7 +109,6 @@ public class VieuwBmr {
      *
      */
     public void start(Stage primaryStage) {
-        
         root.setCenter(hBoxRoot);
         hBoxGraphic.setAlignment(Pos.CENTER);
         hBoxGraphic.autosize();
@@ -147,7 +144,7 @@ public class VieuwBmr {
             @Override
             public void handle(KeyEvent e){
                 inputOnlyNumber(e);
-                invalidInput(e);
+                //invalidInput(input.getTextWeight());
             }
         });
         
@@ -156,7 +153,7 @@ public class VieuwBmr {
             @Override
             public void handle(KeyEvent e){
                 inputOnlyNumber(e);
-                invalidInput(e);
+                //invalidInput(input.getTextSize());
                 
             }
         });
@@ -166,12 +163,11 @@ public class VieuwBmr {
             @Override
             public void handle(KeyEvent e){
                 inputOnlyNumber(e);
-                invalidInput(e);
+                //invalidInput(input.getTextAge());
             }
         });
         
         Scene scene = new Scene(root, 1200, 400);
-          
         primaryStage.setScene(scene);
         primaryStage.setTitle(" Calcul du BMR ");
         primaryStage.show();
@@ -207,7 +203,7 @@ public class VieuwBmr {
      * the method that check if all textfield is empty
      * @return true if one of textField is empty
      */
-    public boolean isInvalidInput(){
+    public boolean isEmptyInput(){
         return input.getTextSize().getText().isEmpty() || input.getTextWeight().
             getText().isEmpty() || input.getTextAge().getText().isEmpty();
     }
@@ -234,14 +230,9 @@ public class VieuwBmr {
     
     /**
      * method that show a warning alert when the negatif number was typeed
-     * @param e event key typed
+     * 
      */
-    public void invalidInput(KeyEvent e) {
-        if(e.getCharacter().matches("[-0]") || e.getCharacter().charAt(0)=='0'){
-            e.consume();
-            Alert error = new Alert(Alert.AlertType.ERROR,
-                    "WARNING",ButtonType.CLOSE);
-            error.showAndWait();
-        }
+    public boolean zeroInput() {
+        return input.getSize()<=0 || input.getWeight()<=0 || input.getAge()<=0;
     }
 }

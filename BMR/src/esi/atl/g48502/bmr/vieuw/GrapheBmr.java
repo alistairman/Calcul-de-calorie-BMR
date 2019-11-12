@@ -1,5 +1,8 @@
 package esi.atl.g48502.bmr.vieuw;
 
+import esi.atl.g48502.bmr.model.Homme;
+import esi.atl.g48502.bmr.model.Personne;
+import esi.atl.g48502.bmr.util.Observer;
 import javafx.scene.chart.Axis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
